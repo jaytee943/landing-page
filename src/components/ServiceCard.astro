@@ -8,64 +8,16 @@ interface Props {
 const { service } = Astro.props;
 ---
 
-<div class="service-card" style={`--tint:${service.tint};--icon-color:${service.iconColor}`}>
-  <div class="service-card__icon">
-    <div class="service-card__icon-dot"></div>
+<div
+  class="rounded-card border-line bg-surface flex flex-col gap-4 border p-9 px-8 shadow-[0_1px_2px_rgba(46,43,37,0.14)]"
+>
+  <div
+    class="flex h-12 w-12 items-center justify-center rounded-full"
+    style={`background:${service.tint}`}
+  >
+    <div class="h-4 w-4 rounded-full" style={`background:${service.iconColor}`}></div>
   </div>
-  <h3 class="service-card__title">{service.title}</h3>
-  <p class="service-card__desc">{service.desc}</p>
-  <div class="service-card__meta">{service.meta}</div>
+  <h3 class="font-display mt-1.5 text-xl font-normal">{service.title}</h3>
+  <p class="text-ink-muted flex-1 text-[15px] leading-[1.7]">{service.desc}</p>
+  <div class="border-line text-sage border-t pt-2 text-[13px] font-semibold">{service.meta}</div>
 </div>
-
-<style>
-  .service-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 36px 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    box-shadow: 0 1px 2px rgba(46, 43, 37, 0.14);
-  }
-
-  .service-card__icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--tint);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .service-card__icon-dot {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--icon-color);
-  }
-
-  .service-card__title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 20px;
-    margin: 6px 0 0;
-  }
-
-  .service-card__desc {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--color-text-muted);
-    margin: 0;
-    flex: 1;
-  }
-
-  .service-card__meta {
-    font-size: 13px;
-    color: var(--color-green);
-    font-weight: 600;
-    padding-top: 8px;
-    border-top: 1px solid var(--color-border);
-  }
-</style>

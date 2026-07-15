@@ -10,80 +10,24 @@ interface Props {
 const { plan } = Astro.props;
 ---
 
-<div class={`pricing-card ${plan.featured ? 'pricing-card--featured' : ''}`}>
-  {plan.featured && <div class="pricing-card__badge">Most common</div>}
-  <h3 class="pricing-card__title">{plan.title}</h3>
-  <div class="pricing-card__price">
-    <span class="pricing-card__amount">{plan.price}</span>
-    <span class="pricing-card__unit">{plan.unit}</span>
+<div
+  class:list={[
+    'rounded-card relative flex flex-col gap-[18px] border p-10 px-8',
+    plan.featured ? 'border-sage-border bg-sage-pale' : 'border-line bg-surface',
+  ]}
+>
+  {
+    plan.featured && (
+      <div class="bg-accent font-display text-accent-contrast absolute -top-[13px] left-8 rounded-full px-4 py-1.5 text-xs">
+        Most common
+      </div>
+    )
+  }
+  <h3 class="font-display mt-2 text-xl font-normal">{plan.title}</h3>
+  <div class="flex items-baseline gap-1.5">
+    <span class="font-display text-[34px]">{plan.price}</span>
+    <span class="text-ink-soft text-sm">{plan.unit}</span>
   </div>
-  <p class="pricing-card__desc">{plan.desc}</p>
-  <Button href={siteConfig.schedulerUrl} external class="pricing-card__cta">Book this</Button>
+  <p class="text-ink-muted flex-1 text-[15px] leading-[1.7]">{plan.desc}</p>
+  <Button href={siteConfig.schedulerUrl} external class="mt-2 w-full"> Book this </Button>
 </div>
-
-<style>
-  .pricing-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 40px 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: relative;
-  }
-
-  .pricing-card--featured {
-    background: var(--color-green-pale);
-    border-color: var(--color-green-border);
-  }
-
-  .pricing-card__badge {
-    position: absolute;
-    top: -13px;
-    left: 32px;
-    background: var(--color-accent);
-    color: var(--color-accent-contrast);
-    font-size: 12px;
-    font-family: var(--font-display);
-    padding: 6px 16px;
-    border-radius: var(--radius-pill);
-  }
-
-  .pricing-card__title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 21px;
-    margin: 8px 0 0;
-  }
-
-  .pricing-card__price {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-  }
-
-  .pricing-card__amount {
-    font-family: var(--font-display);
-    font-size: 34px;
-  }
-
-  .pricing-card__unit {
-    font-size: 14px;
-    color: var(--color-text-soft);
-  }
-
-  .pricing-card__desc {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--color-text-muted);
-    margin: 0;
-    flex: 1;
-  }
-
-  .pricing-card :global(.pricing-card__cta) {
-    text-align: center;
-    margin-top: 8px;
-    width: 100%;
-  }
-</style>

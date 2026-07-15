@@ -5,7 +5,8 @@
 A landing page for offering therapy sessions and coaching sessions to private clients.
 
 - **Design source:** imported from claude.ai/design, project `c37d0a93-1c72-446e-a79f-4f152591265b`, file `Therapy Landing Page.dc.html` (via the DesignSync/claude_design tool).
-- **Stack:** Astro + TypeScript (strict), ESLint (flat config, typescript-eslint + eslint-plugin-astro), Prettier (+ prettier-plugin-astro), pnpm.
+- **Stack:** Astro + TypeScript (strict), Tailwind CSS v4 (via `@tailwindcss/vite`, no separate config file — theme tokens live in `src/styles/global.css`'s `@theme` block), ESLint (flat config, typescript-eslint + eslint-plugin-astro), Prettier (+ prettier-plugin-astro, prettier-plugin-tailwindcss), pnpm.
+- **Styling:** Tailwind utility classes only — no component-scoped `<style>` blocks. Repeated patterns (eyebrow label, section heading, max-width container) are factored into small Astro components (`Eyebrow.astro`, `SectionHeading.astro`, `Container.astro`) rather than duplicated class strings, per the DRY/reuse-components rules in CLAUDE.md. Per-item dynamic colors (service card tint/icon colors) stay as inline `style` attributes since Tailwind can't generate utilities for runtime data values.
 - **Hosting:** GitHub Pages, built and deployed via GitHub Actions (`.github/workflows/deploy.yml`).
 
 ## Placeholder content — needs real values before going live

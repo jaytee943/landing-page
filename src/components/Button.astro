@@ -8,17 +8,18 @@ interface Props {
 }
 
 const { href, variant = 'primary', size = 'md', external = false, class: className } = Astro.props;
-
-const classes = ['btn', `btn--${variant}`, size === 'sm' ? 'btn--sm' : '', className]
-  .filter(Boolean)
-  .join(' ');
 ---
 
 <a
   href={href}
-  class={classes}
   target={external ? '_blank' : undefined}
   rel={external ? 'noopener' : undefined}
+  class:list={[
+    'font-display inline-block rounded-full text-center',
+    size === 'sm' ? 'px-6 py-[11px] text-[13px]' : 'px-8 py-4 text-[15px]',
+    variant === 'primary' ? 'bg-accent text-accent-contrast' : 'border-line-strong text-ink border',
+    className,
+  ]}
 >
   <slot />
 </a>

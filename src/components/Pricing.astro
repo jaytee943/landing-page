@@ -1,52 +1,20 @@
 ---
+import Container from './Container.astro';
+import Eyebrow from './Eyebrow.astro';
 import PricingCard from './PricingCard.astro';
+import SectionHeading from './SectionHeading.astro';
 import { pricingPlans } from '../data/site';
 ---
 
-<section id="pricing" class="pricing">
-  <div class="pricing__intro">
-    <p class="eyebrow">Pricing</p>
-    <h2 class="section-heading pricing__heading">Session rates</h2>
-    <p class="pricing__lead">
+<Container as="section" id="pricing" class="py-[110px]">
+  <div class="mb-16 max-w-[640px]">
+    <Eyebrow>Pricing</Eyebrow>
+    <SectionHeading class="mb-4 text-[36px]">Session rates</SectionHeading>
+    <p class="text-ink-muted text-base leading-[1.7]">
       A limited number of sliding-scale spots are available — ask during your consult.
     </p>
   </div>
-  <div class="pricing__grid">
+  <div class="grid grid-cols-1 gap-7 md:grid-cols-3">
     {pricingPlans.map((plan) => <PricingCard plan={plan} />)}
   </div>
-</section>
-
-<style>
-  .pricing {
-    padding: 110px var(--gutter);
-    max-width: var(--max-width);
-    margin: 0 auto;
-  }
-
-  .pricing__intro {
-    max-width: 640px;
-    margin: 0 0 64px;
-  }
-
-  .pricing__heading {
-    font-size: 36px;
-  }
-
-  .pricing__lead {
-    font-size: 16px;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-  }
-
-  .pricing__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  @media (max-width: 860px) {
-    .pricing__grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
+</Container>

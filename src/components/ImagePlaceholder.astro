@@ -8,5 +8,11 @@ const { label, class: className } = Astro.props;
 ---
 
 <div class={className}>
-  <div class="image-placeholder" role="img" aria-label={label}>{label}</div>
+  <div
+    role="img"
+    aria-label={label}
+    class="border-line bg-bg-alt/60 text-ink-soft flex h-full w-full items-center justify-center border-2 border-dashed p-6 text-center text-[13px]"
+  >
+    {label}
+  </div>
 </div>

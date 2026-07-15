@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
@@ -7,4 +8,7 @@ export default defineConfig({
   // Switching to a custom domain later means dropping `base` and adding a CNAME.
   site: 'https://jaytee943.github.io',
   base: '/landing-page',
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
