@@ -1,0 +1,52 @@
+---
+import PricingCard from './PricingCard.astro';
+import { pricingPlans } from '../data/site';
+---
+
+<section id="pricing" class="pricing">
+  <div class="pricing__intro">
+    <p class="eyebrow">Pricing</p>
+    <h2 class="section-heading pricing__heading">Session rates</h2>
+    <p class="pricing__lead">
+      A limited number of sliding-scale spots are available — ask during your consult.
+    </p>
+  </div>
+  <div class="pricing__grid">
+    {pricingPlans.map((plan) => <PricingCard plan={plan} />)}
+  </div>
+</section>
+
+<style>
+  .pricing {
+    padding: 110px var(--gutter);
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .pricing__intro {
+    max-width: 640px;
+    margin: 0 0 64px;
+  }
+
+  .pricing__heading {
+    font-size: 36px;
+  }
+
+  .pricing__lead {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  @media (max-width: 860px) {
+    .pricing__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,106 @@
+---
+import ImagePlaceholder from './ImagePlaceholder.astro';
+
+const stats = [
+  { value: '12+', label: 'Years in practice' },
+  { value: 'LMFT', label: 'Licensed & certified' },
+  { value: '1:1', label: 'Individual focus only' },
+];
+---
+
+<section id="about" class="about">
+  <div class="about__grid">
+    <ImagePlaceholder label="Office / studio setting" class="about__photo" />
+    <div>
+      <p class="eyebrow">About</p>
+      <h2 class="section-heading about__heading">
+        Therapy that fits into a real life, not around it
+      </h2>
+      <p class="about__paragraph">
+        I've spent the last twelve years working with adults navigating anxiety, burnout, grief, and
+        the kind of transitions that don't come with a manual — new careers, new relationships,
+        becoming a parent, losing one. My approach blends talk therapy with practical coaching, so
+        sessions leave you with both understanding and something to actually do.
+      </p>
+      <p class="about__paragraph">
+        I trained at Duke University and hold licensure as a Marriage &amp; Family Therapist, with
+        additional certification in mindfulness-based cognitive coaching. Outside of sessions you'll
+        usually find me hiking or in the garden — both show up in how I think about growth.
+      </p>
+      <div class="about__stats">
+        {
+          stats.map((stat) => (
+            <div>
+              <div class="about__stat-value">{stat.value}</div>
+              <div class="about__stat-label">{stat.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 100px var(--gutter);
+    background: var(--color-bg-alt);
+  }
+
+  .about__grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about__photo {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 1;
+    box-shadow: 0 12px 32px rgba(46, 43, 37, 0.22);
+  }
+
+  .about__heading {
+    font-size: 36px;
+    margin-bottom: 24px;
+    max-width: 16ch;
+  }
+
+  .about__paragraph {
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin: 0 0 20px;
+  }
+
+  .about__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 480px;
+    margin-top: 12px;
+  }
+
+  .about__stat-value {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--color-accent-dark);
+  }
+
+  .about__stat-label {
+    font-size: 13px;
+    color: var(--color-text-soft);
+    margin-top: 4px;
+  }
+
+  @media (max-width: 860px) {
+    .about__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

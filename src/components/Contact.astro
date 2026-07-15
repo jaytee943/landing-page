@@ -1,0 +1,65 @@
+---
+import Button from './Button.astro';
+import { siteConfig } from '../data/site';
+---
+
+<section id="contact" class="contact">
+  <div class="contact__inner">
+    <p class="eyebrow">Get started</p>
+    <h2 class="section-heading contact__heading">Let's find a time to talk</h2>
+    <p class="contact__lead">
+      Booking runs through my scheduler — pick a time that works, and you'll get a confirmation with
+      everything you need for your first session.
+    </p>
+    <Button href={siteConfig.schedulerUrl} external class="contact__cta">Open scheduler</Button>
+    <div class="contact__details">
+      <span>{siteConfig.email}</span>
+      <span class="contact__divider">·</span>
+      <span>{siteConfig.phone}</span>
+      <span class="contact__divider">·</span>
+      <span>{siteConfig.location} &amp; virtual</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: 110px var(--gutter);
+    background: var(--color-bg-alt);
+  }
+
+  .contact__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .contact__heading {
+    font-size: 38px;
+    margin-bottom: 20px;
+  }
+
+  .contact__lead {
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    max-width: 52ch;
+    margin: 0 0 40px;
+  }
+
+  .contact__inner :global(.contact__cta) {
+    margin-bottom: 36px;
+  }
+
+  .contact__details {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    color: var(--color-text-muted);
+    flex-wrap: wrap;
+  }
+
+  .contact__divider {
+    opacity: 0.5;
+  }
+</style>

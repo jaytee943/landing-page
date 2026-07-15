@@ -1,0 +1,97 @@
+---
+import Button from './Button.astro';
+import ImagePlaceholder from './ImagePlaceholder.astro';
+import { siteConfig } from '../data/site';
+---
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">Individual Therapy &amp; Coaching</p>
+    <h1 class="hero__heading">A quiet space to think, feel, and move forward</h1>
+    <p class="hero__lead">
+      I'm {siteConfig.practitionerName}, a licensed therapist and coach helping adults work through
+      anxiety, life transitions, and the everyday weight of being a person. Sessions are warm,
+      unhurried, and grounded in what actually helps.
+    </p>
+    <div class="hero__actions">
+      <Button href={siteConfig.schedulerUrl} external>Schedule a free consult</Button>
+      <Button href="#services" variant="outline">See services</Button>
+    </div>
+    <div class="hero__meta">
+      <span>{siteConfig.credential}</span>
+      <span class="hero__divider">·</span>
+      <span>In-person &amp; virtual</span>
+      <span class="hero__divider">·</span>
+      <span>Based in {siteConfig.location}</span>
+    </div>
+  </div>
+  <div class="hero__portrait">
+    <ImagePlaceholder label="Portrait of Margaret, warm natural light" />
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+    padding: 96px var(--gutter) 100px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .hero__heading {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 52px;
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    margin: 0 0 24px;
+    max-width: 11ch;
+    text-wrap: pretty;
+  }
+
+  .hero__lead {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    max-width: 46ch;
+    margin: 0 0 36px;
+    text-wrap: pretty;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .hero__meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 52px;
+    font-size: 13px;
+    color: var(--color-text-soft);
+  }
+
+  .hero__divider {
+    opacity: 0.5;
+  }
+
+  .hero__portrait {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(46, 43, 37, 0.22);
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding-top: 56px;
+    }
+  }
+</style>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'outline';
+  size?: 'md' | 'sm';
+  external?: boolean;
+  class?: string;
+}
+
+const { href, variant = 'primary', size = 'md', external = false, class: className } = Astro.props;
+
+const classes = ['btn', `btn--${variant}`, size === 'sm' ? 'btn--sm' : '', className]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<a
+  href={href}
+  class={classes}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener' : undefined}
+>
+  <slot />
+</a>

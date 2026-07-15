@@ -1,0 +1,46 @@
+---
+import type { ProcessStep } from '../data/site';
+
+interface Props {
+  step: ProcessStep;
+}
+
+const { step } = Astro.props;
+---
+
+<div class="process-step">
+  <div class="process-step__num">{step.num}</div>
+  <h3 class="process-step__title">{step.title}</h3>
+  <p class="process-step__desc">{step.desc}</p>
+</div>
+
+<style>
+  .process-step {
+    padding: 24px 22px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+  }
+
+  .process-step__num {
+    font-family: var(--font-display);
+    font-size: 15px;
+    color: var(--color-green-light);
+    margin-bottom: 14px;
+  }
+
+  .process-step__title {
+    font-size: 18px;
+    margin: 0 0 10px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .process-step__desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-green-pale);
+    margin: 0;
+    opacity: 0.9;
+  }
+</style>
