@@ -1,0 +1,85 @@
+---
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../i18n/config';
+---
+
+<div data-lang-switcher class="flex items-center gap-1 text-xs font-semibold">
+  {
+    SUPPORTED_LOCALES.map((locale) => (
+      <button
+        type="button"
+        data-locale={locale}
+        aria-pressed={locale === DEFAULT_LOCALE ? 'true' : 'false'}
+        aria-label={`Switch to ${locale === 'en' ? 'English' : 'Deutsch'}`}
+        class="text-ink-soft aria-pressed:bg-accent aria-pressed:text-accent-contrast rounded-full px-2.5 py-1 uppercase transition-colors"
+      >
+        {locale}
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  import { DEFAULT_LOCALE, isLocale, type Locale } from '../i18n/config';
+  import { t } from '../i18n/translate';
+
+  const STORAGE_KEY = 'locale';
+
+  function detectLocale(): Locale {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && isLocale(stored)) return stored;
+
+    const candidates =
+      navigator.languages && navigator.languages.length
+        ? navigator.languages
+        : [navigator.language];
+
+    for (const lang of candidates) {
+      const short = lang.slice(0, 2).toLowerCase();
+      if (isLocale(short)) return short;
+    }
+
+    return DEFAULT_LOCALE;
+  }
+
+  function applyLocale(locale: Locale) {
+    document.documentElement.lang = locale;
+
+    document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
+      const key = el.dataset.i18n;
+      if (!key) return;
+
+      const params = el.dataset.i18nParams
+        ? (JSON.parse(el.dataset.i18nParams) as Record<string, string | number>)
+        : undefined;
+      const value = t(locale, key, params);
+      const attr = el.dataset.i18nAttr;
+
+      if (attr) {
+        el.setAttribute(attr, value);
+      }
+      el.textContent = value;
+    });
+
+    document
+      .querySelectorAll<HTMLButtonElement>('[data-lang-switcher] [data-locale]')
+      .forEach((btn) => {
+        btn.setAttribute('aria-pressed', String(btn.dataset.locale === locale));
+      });
+  }
+
+  function setLocale(locale: Locale) {
+    localStorage.setItem(STORAGE_KEY, locale);
+    applyLocale(locale);
+  }
+
+  document
+    .querySelectorAll<HTMLButtonElement>('[data-lang-switcher] [data-locale]')
+    .forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const locale = btn.dataset.locale;
+        if (locale && isLocale(locale)) setLocale(locale);
+      });
+    });
+
+  applyLocale(detectLocale());
+</script>

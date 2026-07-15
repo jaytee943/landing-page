@@ -1,29 +1,33 @@
+/**
+ * Structural / locale-independent data only. All translatable copy
+ * (titles, descriptions, labels) lives in src/i18n/messages.json, keyed
+ * by the `id` fields below.
+ */
+
 export interface Service {
-  title: string;
-  desc: string;
-  meta: string;
+  id: 'therapy' | 'coaching' | 'single';
   tint: string;
   iconColor: string;
 }
 
 export interface ProcessStep {
+  id: 'consult' | 'first' | 'ongoing' | 'checkins';
   num: string;
-  title: string;
-  desc: string;
 }
 
 export interface PricingPlan {
-  title: string;
+  id: 'single' | 'ongoing' | 'coaching';
   price: string;
-  unit: string;
-  desc: string;
   featured: boolean;
 }
 
 export interface SiteConfig {
   businessName: string;
   practitionerName: string;
-  credential: string;
+  /** Untranslated professional designation, e.g. "LMFT" — kept separate from the
+   * translatable "N yrs practice" phrase (see i18n `hero.yearsPractice`). */
+  credentialAbbr: string;
+  yearsInPractice: number;
   location: string;
   schedulerUrl: string;
   email: string;
@@ -40,7 +44,8 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   businessName: 'Wren & Hollow',
   practitionerName: 'Margaret Aldous',
-  credential: 'LMFT, 12 yrs practice',
+  credentialAbbr: 'LMFT',
+  yearsInPractice: 12,
   location: 'Asheville, NC',
   schedulerUrl: 'https://calendly.com/example',
   email: 'margaret@wrenandhollow.com',
@@ -48,72 +53,20 @@ export const siteConfig: SiteConfig = {
 };
 
 export const services: Service[] = [
-  {
-    title: 'Individual Therapy',
-    desc: 'Weekly or biweekly sessions addressing anxiety, depression, grief, and relationship patterns.',
-    meta: '50 min · in-person or virtual',
-    tint: '#ffe1d0',
-    iconColor: '#c67139',
-  },
-  {
-    title: 'Life Coaching',
-    desc: 'Goal-focused sessions for career direction, big decisions, and building sustainable habits.',
-    meta: '50 min · virtual friendly',
-    tint: '#e1eecc',
-    iconColor: '#728157',
-  },
-  {
-    title: 'Single Sessions',
-    desc: 'One-off sessions for a specific issue or a second opinion, no ongoing commitment required.',
-    meta: '50 min · as needed',
-    tint: '#ffc6a5',
-    iconColor: '#8c491a',
-  },
+  { id: 'therapy', tint: '#ffe1d0', iconColor: '#c67139' },
+  { id: 'coaching', tint: '#e1eecc', iconColor: '#728157' },
+  { id: 'single', tint: '#ffc6a5', iconColor: '#8c491a' },
 ];
 
 export const processSteps: ProcessStep[] = [
-  {
-    num: '01',
-    title: 'Free consult',
-    desc: "A 20-minute call to talk through what's bringing you in and see if we're a fit.",
-  },
-  {
-    num: '02',
-    title: 'First session',
-    desc: 'We slow down, get the full picture, and set a loose direction together.',
-  },
-  {
-    num: '03',
-    title: 'Ongoing work',
-    desc: 'Regular sessions, paced to you — weekly, biweekly, or as life allows.',
-  },
-  {
-    num: '04',
-    title: 'Check-ins',
-    desc: 'We revisit goals every few months and adjust the approach as needed.',
-  },
+  { id: 'consult', num: '01' },
+  { id: 'first', num: '02' },
+  { id: 'ongoing', num: '03' },
+  { id: 'checkins', num: '04' },
 ];
 
 export const pricingPlans: PricingPlan[] = [
-  {
-    title: 'Single Session',
-    price: '$165',
-    unit: '/ session',
-    desc: "Full 50-minute session, billed per visit. Ideal if you're just starting out.",
-    featured: false,
-  },
-  {
-    title: 'Ongoing Care',
-    price: '$150',
-    unit: '/ session',
-    desc: 'Weekly or biweekly commitment, billed monthly. Our most common plan.',
-    featured: true,
-  },
-  {
-    title: 'Coaching Package',
-    price: '$540',
-    unit: '/ 4 sessions',
-    desc: 'A focused 4-session coaching arc for a specific goal or transition.',
-    featured: false,
-  },
+  { id: 'single', price: '$165', featured: false },
+  { id: 'ongoing', price: '$150', featured: true },
+  { id: 'coaching', price: '$540', featured: false },
 ];

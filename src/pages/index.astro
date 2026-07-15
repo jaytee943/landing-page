@@ -12,8 +12,11 @@ import { siteConfig } from '../data/site';
 ---
 
 <BaseLayout
-  title={`${siteConfig.businessName} — Individual Therapy & Coaching`}
-  description={`${siteConfig.practitionerName} offers individual therapy and coaching sessions, in-person and virtual, based in ${siteConfig.location}.`}
+  titleParams={{ businessName: siteConfig.businessName }}
+  descriptionParams={{
+    practitionerName: siteConfig.practitionerName,
+    location: siteConfig.location,
+  }}
 >
   <Header />
   <Hero />

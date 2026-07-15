@@ -3,16 +3,17 @@ import Container from './Container.astro';
 import Eyebrow from './Eyebrow.astro';
 import SectionHeading from './SectionHeading.astro';
 import ServiceCard from './ServiceCard.astro';
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { t } from '../i18n/translate';
 import { services } from '../data/site';
 ---
 
 <Container as="section" id="services" class="py-[110px]">
   <div class="mb-16 max-w-[640px]">
-    <Eyebrow>Services</Eyebrow>
-    <SectionHeading class="mb-4 text-[36px]">Ways we can work together</SectionHeading>
-    <p class="text-ink-muted text-base leading-[1.7]">
-      Every plan starts with a free 20-minute consult so we can find the right fit before committing
-      to anything.
+    <Eyebrow i18nKey="services.eyebrow" />
+    <SectionHeading i18nKey="services.heading" class="mb-4 text-[36px]" />
+    <p data-i18n="services.lead" class="text-ink-muted text-base leading-[1.7]">
+      {t(DEFAULT_LOCALE, 'services.lead')}
     </p>
   </div>
   <div class="grid grid-cols-1 gap-7 md:grid-cols-3">

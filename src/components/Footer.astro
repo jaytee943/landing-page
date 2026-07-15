@@ -1,14 +1,20 @@
 ---
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { t } from '../i18n/translate';
 import { siteConfig } from '../data/site';
 
-const year = new Date().getFullYear();
-const credentialAbbr = siteConfig.credential.split(',')[0];
-const copyrightLine = `© ${year} ${siteConfig.practitionerName}, ${credentialAbbr}. All sessions confidential.`;
+const copyrightParams = {
+  year: new Date().getFullYear(),
+  practitionerName: siteConfig.practitionerName,
+  credentialAbbr: siteConfig.credentialAbbr,
+};
 ---
 
 <footer
   class="border-line-hairline text-ink-soft flex flex-wrap items-center justify-between gap-3 border-t px-[6vw] py-10 text-[13px]"
 >
   <div class="font-display text-ink text-base">{siteConfig.businessName}</div>
-  <div>{copyrightLine}</div>
+  <div data-i18n="footer.copyright" data-i18n-params={JSON.stringify(copyrightParams)}>
+    {t(DEFAULT_LOCALE, 'footer.copyright', copyrightParams)}
+  </div>
 </footer>

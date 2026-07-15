@@ -1,18 +1,23 @@
 ---
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { t } from '../i18n/translate';
+
 interface Props {
+  i18nKey: string;
   dark?: boolean;
   class?: string;
 }
 
-const { dark = false, class: className } = Astro.props;
+const { i18nKey, dark = false, class: className }: Props = Astro.props;
 ---
 
 <p
+  data-i18n={i18nKey}
   class:list={[
     'mb-[18px] text-[13px] font-semibold tracking-[0.08em] uppercase',
     dark ? 'text-sage-light' : 'text-sage',
     className,
   ]}
 >
-  <slot />
+  {t(DEFAULT_LOCALE, i18nKey)}
 </p>

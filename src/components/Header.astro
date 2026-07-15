@@ -1,12 +1,15 @@
 ---
 import Button from './Button.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { t } from '../i18n/translate';
 import { siteConfig } from '../data/site';
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#process', label: 'Process' },
-  { href: '#pricing', label: 'Pricing' },
+  { href: '#about', key: 'nav.about' },
+  { href: '#services', key: 'nav.services' },
+  { href: '#process', key: 'nav.process' },
+  { href: '#pricing', key: 'nav.pricing' },
 ];
 ---
 
@@ -18,12 +21,15 @@ const navLinks = [
     <div class="flex gap-8">
       {
         navLinks.map((link) => (
-          <a href={link.href} class="text-ink">
-            {link.label}
+          <a href={link.href} class="text-ink" data-i18n={link.key}>
+            {t(DEFAULT_LOCALE, link.key)}
           </a>
         ))
       }
     </div>
-    <Button href={siteConfig.schedulerUrl} size="sm" external> Book a session </Button>
+    <LanguageSwitcher />
+    <Button href={siteConfig.schedulerUrl} size="sm" external>
+      <span data-i18n="nav.bookSession">{t(DEFAULT_LOCALE, 'nav.bookSession')}</span>
+    </Button>
   </nav>
 </header>

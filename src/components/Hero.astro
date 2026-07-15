@@ -3,7 +3,13 @@ import Button from './Button.astro';
 import Container from './Container.astro';
 import Eyebrow from './Eyebrow.astro';
 import ImagePlaceholder from './ImagePlaceholder.astro';
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { t } from '../i18n/translate';
 import { siteConfig } from '../data/site';
+
+const leadParams = { practitionerName: siteConfig.practitionerName };
+const basedInParams = { location: siteConfig.location };
+const yearsParams = { years: siteConfig.yearsInPractice };
 ---
 
 <Container
@@ -11,31 +17,47 @@ import { siteConfig } from '../data/site';
   class="grid grid-cols-1 items-center gap-14 pt-[96px] pb-[100px] md:grid-cols-[1.05fr_0.95fr]"
 >
   <div>
-    <Eyebrow>Individual Therapy &amp; Coaching</Eyebrow>
+    <Eyebrow i18nKey="hero.eyebrow" />
     <h1
+      data-i18n="hero.heading"
       class="font-display mb-6 max-w-[11ch] text-[52px] leading-[1.14] font-normal tracking-[-0.01em] text-pretty"
     >
-      A quiet space to think, feel, and move forward
+      {t(DEFAULT_LOCALE, 'hero.heading')}
     </h1>
-    <p class="text-ink-muted mb-9 max-w-[46ch] text-lg leading-[1.7] text-pretty">
-      I'm {siteConfig.practitionerName}, a licensed therapist and coach helping adults work through
-      anxiety, life transitions, and the everyday weight of being a person. Sessions are warm,
-      unhurried, and grounded in what actually helps.
+    <p
+      data-i18n="hero.lead"
+      data-i18n-params={JSON.stringify(leadParams)}
+      class="text-ink-muted mb-9 max-w-[46ch] text-lg leading-[1.7] text-pretty"
+    >
+      {t(DEFAULT_LOCALE, 'hero.lead', leadParams)}
     </p>
     <div class="flex flex-wrap items-center gap-4">
-      <Button href={siteConfig.schedulerUrl} external>Schedule a free consult</Button>
-      <Button href="#services" variant="outline">See services</Button>
+      <Button href={siteConfig.schedulerUrl} external>
+        <span data-i18n="hero.ctaPrimary">{t(DEFAULT_LOCALE, 'hero.ctaPrimary')}</span>
+      </Button>
+      <Button href="#services" variant="outline">
+        <span data-i18n="hero.ctaSecondary">{t(DEFAULT_LOCALE, 'hero.ctaSecondary')}</span>
+      </Button>
     </div>
     <div class="text-ink-soft mt-[52px] flex gap-7 text-[13px]">
-      <span>{siteConfig.credential}</span>
+      <span>
+        {siteConfig.credentialAbbr}, <span
+          data-i18n="hero.yearsPractice"
+          data-i18n-params={JSON.stringify(yearsParams)}
+          >{t(DEFAULT_LOCALE, 'hero.yearsPractice', yearsParams)}</span
+        >
+      </span>
       <span class="opacity-50">·</span>
-      <span>In-person &amp; virtual</span>
+      <span data-i18n="hero.metaInPerson">{t(DEFAULT_LOCALE, 'hero.metaInPerson')}</span>
       <span class="opacity-50">·</span>
-      <span>Based in {siteConfig.location}</span>
+      <span data-i18n="hero.metaBasedIn" data-i18n-params={JSON.stringify(basedInParams)}>
+        {t(DEFAULT_LOCALE, 'hero.metaBasedIn', basedInParams)}
+      </span>
     </div>
   </div>
   <ImagePlaceholder
-    label="Portrait of Margaret, warm natural light"
+    label={t(DEFAULT_LOCALE, 'hero.portraitAlt')}
+    i18nKey="hero.portraitAlt"
     class="rounded-card relative aspect-[4/5] overflow-hidden shadow-[0_12px_32px_rgba(46,43,37,0.22)]"
   />
 </Container>

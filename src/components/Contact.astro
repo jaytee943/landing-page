@@ -2,24 +2,33 @@
 import Button from './Button.astro';
 import Eyebrow from './Eyebrow.astro';
 import SectionHeading from './SectionHeading.astro';
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { t } from '../i18n/translate';
 import { siteConfig } from '../data/site';
 ---
 
 <section id="contact" class="bg-bg-alt py-[110px]">
   <div class="mx-auto max-w-[900px] px-[6vw] text-left">
-    <Eyebrow>Get started</Eyebrow>
-    <SectionHeading class="mb-5 text-[38px]">Let's find a time to talk</SectionHeading>
-    <p class="text-ink-muted mb-10 max-w-[52ch] text-[16.5px] leading-[1.7]">
-      Booking runs through my scheduler — pick a time that works, and you'll get a confirmation with
-      everything you need for your first session.
+    <Eyebrow i18nKey="contact.eyebrow" />
+    <SectionHeading i18nKey="contact.heading" class="mb-5 text-[38px]" />
+    <p
+      data-i18n="contact.lead"
+      class="text-ink-muted mb-10 max-w-[52ch] text-[16.5px] leading-[1.7]"
+    >
+      {t(DEFAULT_LOCALE, 'contact.lead')}
     </p>
-    <Button href={siteConfig.schedulerUrl} external class="mb-9">Open scheduler</Button>
+    <Button href={siteConfig.schedulerUrl} external class="mb-9">
+      <span data-i18n="contact.cta">{t(DEFAULT_LOCALE, 'contact.cta')}</span>
+    </Button>
     <div class="text-ink-muted flex flex-wrap gap-8 text-sm">
       <span>{siteConfig.email}</span>
       <span class="opacity-50">·</span>
       <span>{siteConfig.phone}</span>
       <span class="opacity-50">·</span>
-      <span>{siteConfig.location} &amp; virtual</span>
+      <span>
+        {siteConfig.location}
+        <span data-i18n="contact.virtualSuffix">{t(DEFAULT_LOCALE, 'contact.virtualSuffix')}</span>
+      </span>
     </div>
   </div>
 </section>

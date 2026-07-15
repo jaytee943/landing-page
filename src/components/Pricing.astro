@@ -3,15 +3,17 @@ import Container from './Container.astro';
 import Eyebrow from './Eyebrow.astro';
 import PricingCard from './PricingCard.astro';
 import SectionHeading from './SectionHeading.astro';
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { t } from '../i18n/translate';
 import { pricingPlans } from '../data/site';
 ---
 
 <Container as="section" id="pricing" class="py-[110px]">
   <div class="mb-16 max-w-[640px]">
-    <Eyebrow>Pricing</Eyebrow>
-    <SectionHeading class="mb-4 text-[36px]">Session rates</SectionHeading>
-    <p class="text-ink-muted text-base leading-[1.7]">
-      A limited number of sliding-scale spots are available — ask during your consult.
+    <Eyebrow i18nKey="pricing.eyebrow" />
+    <SectionHeading i18nKey="pricing.heading" class="mb-4 text-[36px]" />
+    <p data-i18n="pricing.lead" class="text-ink-muted text-base leading-[1.7]">
+      {t(DEFAULT_LOCALE, 'pricing.lead')}
     </p>
   </div>
   <div class="grid grid-cols-1 gap-7 md:grid-cols-3">

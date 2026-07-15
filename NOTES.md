@@ -20,6 +20,27 @@ is used for a real client, replace:
   email, phone, scheduler URL)
 - The two `ImagePlaceholder` slots (hero portrait, about photo) with real photography
 - `services`, `processSteps`, `pricingPlans` in the same file, if the real offering differs
+- All copy in `src/i18n/messages.json` (both `en` and `de`) if the offering or tone changes
+
+## i18n (English + German)
+
+- All user-facing copy lives in `src/i18n/messages.json`, keyed as `{locale}.{section}.{key}`.
+  `src/data/site.ts` holds only locale-independent structural data (ids, prices, colors, contact
+  info) — text that used to live there (service/plan/step titles & descriptions) moved into the
+  message dictionary, keyed by each item's `id`.
+- This is a static GitHub Pages site with no server, so there's no `Accept-Language` header to
+  read — language selection is entirely client-side:
+  - The server always renders **German** (`DEFAULT_LOCALE` in `src/i18n/config.ts`) into the
+    initial HTML, so the page is fully readable with JS disabled.
+  - Every translatable element carries a `data-i18n="path.key"` attribute (and `data-i18n-params`
+    for interpolated values). `LanguageSwitcher.astro`'s client script walks `[data-i18n]` on load,
+    picks a locale (`localStorage` → `navigator.languages` → German fallback), and re-translates
+    the DOM in place if it differs from German.
+  - The switcher buttons in the header call the same re-translation function and persist the
+    choice to `localStorage`.
+- Adding a third locale: add the locale code to `SUPPORTED_LOCALES` in `src/i18n/config.ts` and a
+  matching top-level key in `messages.json` with every key the `en`/`de` objects have (there's no
+  build-time check that all three stay in sync — a missing key throws at render time via `t()`).
 
 ## GitHub Pages deployment
 

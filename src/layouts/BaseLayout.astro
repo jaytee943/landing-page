@@ -1,19 +1,29 @@
 ---
 import '../styles/global.css';
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { t, type TranslationParams } from '../i18n/translate';
 
 interface Props {
-  title: string;
-  description: string;
+  titleParams: TranslationParams;
+  descriptionParams: TranslationParams;
 }
 
-const { title, description } = Astro.props;
+const { titleParams, descriptionParams } = Astro.props;
+const title = t(DEFAULT_LOCALE, 'meta.title', titleParams);
+const description = t(DEFAULT_LOCALE, 'meta.description', descriptionParams);
 ---
 
-<html lang="en">
+<html lang={DEFAULT_LOCALE}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta
+      name="description"
+      content={description}
+      data-i18n="meta.description"
+      data-i18n-attr="content"
+      data-i18n-params={JSON.stringify(descriptionParams)}
+    />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +32,7 @@ const { title, description } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>{title}</title>
+    <title data-i18n="meta.title" data-i18n-params={JSON.stringify(titleParams)}>{title}</title>
   </head>
   <body>
     <slot />

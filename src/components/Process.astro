@@ -8,8 +8,8 @@ import { processSteps } from '../data/site';
 
 <Container as="section" id="process" class="bg-sage-mid text-sage-pale py-[110px]">
   <div class="mb-[72px] max-w-[640px]">
-    <Eyebrow dark>How it works</Eyebrow>
-    <SectionHeading class="text-[36px] text-white">A simple, unhurried process</SectionHeading>
+    <Eyebrow i18nKey="process.eyebrow" dark />
+    <SectionHeading i18nKey="process.heading" class="text-[36px] text-white" />
   </div>
   <div class="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
     {processSteps.map((step) => <ProcessStepCard step={step} />)}

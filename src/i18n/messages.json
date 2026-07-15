@@ -1,0 +1,226 @@
+{
+  "en": {
+    "nav": {
+      "about": "About",
+      "services": "Services",
+      "process": "Process",
+      "pricing": "Pricing",
+      "bookSession": "Book a session"
+    },
+    "hero": {
+      "eyebrow": "Individual Therapy & Coaching",
+      "heading": "A quiet space to think, feel, and move forward",
+      "lead": "I'm {practitionerName}, a licensed therapist and coach helping adults work through anxiety, life transitions, and the everyday weight of being a person. Sessions are warm, unhurried, and grounded in what actually helps.",
+      "ctaPrimary": "Schedule a free consult",
+      "ctaSecondary": "See services",
+      "metaInPerson": "In-person & virtual",
+      "metaBasedIn": "Based in {location}",
+      "yearsPractice": "{years} yrs practice",
+      "portraitAlt": "Portrait of Margaret, warm natural light"
+    },
+    "about": {
+      "eyebrow": "About",
+      "heading": "Therapy that fits into a real life, not around it",
+      "paragraph1": "I've spent the last twelve years working with adults navigating anxiety, burnout, grief, and the kind of transitions that don't come with a manual — new careers, new relationships, becoming a parent, losing one. My approach blends talk therapy with practical coaching, so sessions leave you with both understanding and something to actually do.",
+      "paragraph2": "I trained at Duke University and hold licensure as a Marriage & Family Therapist, with additional certification in mindfulness-based cognitive coaching. Outside of sessions you'll usually find me hiking or in the garden — both show up in how I think about growth.",
+      "photoAlt": "Office / studio setting",
+      "statsYears": "Years in practice",
+      "statsLicensed": "Licensed & certified",
+      "statsFocus": "Individual focus only"
+    },
+    "services": {
+      "eyebrow": "Services",
+      "heading": "Ways we can work together",
+      "lead": "Every plan starts with a free 20-minute consult so we can find the right fit before committing to anything.",
+      "items": {
+        "therapy": {
+          "title": "Individual Therapy",
+          "desc": "Weekly or biweekly sessions addressing anxiety, depression, grief, and relationship patterns.",
+          "meta": "50 min · in-person or virtual"
+        },
+        "coaching": {
+          "title": "Life Coaching",
+          "desc": "Goal-focused sessions for career direction, big decisions, and building sustainable habits.",
+          "meta": "50 min · virtual friendly"
+        },
+        "single": {
+          "title": "Single Sessions",
+          "desc": "One-off sessions for a specific issue or a second opinion, no ongoing commitment required.",
+          "meta": "50 min · as needed"
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "How it works",
+      "heading": "A simple, unhurried process",
+      "steps": {
+        "consult": {
+          "title": "Free consult",
+          "desc": "A 20-minute call to talk through what's bringing you in and see if we're a fit."
+        },
+        "first": {
+          "title": "First session",
+          "desc": "We slow down, get the full picture, and set a loose direction together."
+        },
+        "ongoing": {
+          "title": "Ongoing work",
+          "desc": "Regular sessions, paced to you — weekly, biweekly, or as life allows."
+        },
+        "checkins": {
+          "title": "Check-ins",
+          "desc": "We revisit goals every few months and adjust the approach as needed."
+        }
+      }
+    },
+    "pricing": {
+      "eyebrow": "Pricing",
+      "heading": "Session rates",
+      "lead": "A limited number of sliding-scale spots are available — ask during your consult.",
+      "featuredBadge": "Most common",
+      "bookThis": "Book this",
+      "plans": {
+        "single": {
+          "title": "Single Session",
+          "unit": "/ session",
+          "desc": "Full 50-minute session, billed per visit. Ideal if you're just starting out."
+        },
+        "ongoing": {
+          "title": "Ongoing Care",
+          "unit": "/ session",
+          "desc": "Weekly or biweekly commitment, billed monthly. Our most common plan."
+        },
+        "coaching": {
+          "title": "Coaching Package",
+          "unit": "/ 4 sessions",
+          "desc": "A focused 4-session coaching arc for a specific goal or transition."
+        }
+      }
+    },
+    "contact": {
+      "eyebrow": "Get started",
+      "heading": "Let's find a time to talk",
+      "lead": "Booking runs through my scheduler — pick a time that works, and you'll get a confirmation with everything you need for your first session.",
+      "cta": "Open scheduler",
+      "virtualSuffix": "& virtual"
+    },
+    "footer": {
+      "copyright": "© {year} {practitionerName}, {credentialAbbr}. All sessions confidential."
+    },
+    "meta": {
+      "title": "{businessName} — Individual Therapy & Coaching",
+      "description": "{practitionerName} offers individual therapy and coaching sessions, in-person and virtual, based in {location}."
+    }
+  },
+  "de": {
+    "nav": {
+      "about": "Über mich",
+      "services": "Leistungen",
+      "process": "Ablauf",
+      "pricing": "Preise",
+      "bookSession": "Termin buchen"
+    },
+    "hero": {
+      "eyebrow": "Einzeltherapie & Coaching",
+      "heading": "Ein ruhiger Raum zum Nachdenken, Fühlen und Weitergehen",
+      "lead": "Ich bin {practitionerName}, approbierte Therapeutin und Coach. Ich begleite Erwachsene bei Ängsten, Lebensübergängen und der alltäglichen Last des Menschseins. Die Sitzungen sind warm, unaufgeregt und orientieren sich daran, was wirklich hilft.",
+      "ctaPrimary": "Kostenloses Erstgespräch vereinbaren",
+      "ctaSecondary": "Leistungen ansehen",
+      "metaInPerson": "Vor Ort & virtuell",
+      "metaBasedIn": "Ansässig in {location}",
+      "yearsPractice": "{years} Jahre Praxis",
+      "portraitAlt": "Porträt von Margaret, warmes natürliches Licht"
+    },
+    "about": {
+      "eyebrow": "Über mich",
+      "heading": "Therapie, die ins echte Leben passt – nicht daneben",
+      "paragraph1": "Seit zwölf Jahren begleite ich Erwachsene durch Ängste, Erschöpfung, Trauer und die Übergänge, für die es kein Handbuch gibt – neue Karrieren, neue Beziehungen, Elternschaft oder der Verlust eines Elternteils. Mein Ansatz verbindet Gesprächstherapie mit praktischem Coaching, sodass Sie aus jeder Sitzung sowohl Verständnis als auch konkrete nächste Schritte mitnehmen.",
+      "paragraph2": "Ich habe an der Duke University studiert und bin approbierte Ehe- und Familientherapeutin mit einer Zusatzausbildung in achtsamkeitsbasiertem kognitivem Coaching. Außerhalb der Sitzungen bin ich meist beim Wandern oder im Garten anzutreffen – beides prägt, wie ich über Wachstum denke.",
+      "photoAlt": "Büro- / Praxisraum",
+      "statsYears": "Jahre Praxiserfahrung",
+      "statsLicensed": "Approbiert & zertifiziert",
+      "statsFocus": "Ausschließlich Einzelsitzungen"
+    },
+    "services": {
+      "eyebrow": "Leistungen",
+      "heading": "So können wir zusammenarbeiten",
+      "lead": "Jede Zusammenarbeit beginnt mit einem kostenlosen 20-minütigen Gespräch, damit wir vorab herausfinden, ob es passt.",
+      "items": {
+        "therapy": {
+          "title": "Einzeltherapie",
+          "desc": "Wöchentliche oder zweiwöchentliche Sitzungen zu Ängsten, Depressionen, Trauer und Beziehungsmustern.",
+          "meta": "50 Min. · vor Ort oder virtuell"
+        },
+        "coaching": {
+          "title": "Life Coaching",
+          "desc": "Zielorientierte Sitzungen zu beruflicher Orientierung, wichtigen Entscheidungen und dem Aufbau nachhaltiger Gewohnheiten.",
+          "meta": "50 Min. · gut virtuell möglich"
+        },
+        "single": {
+          "title": "Einzelsitzungen",
+          "desc": "Einmalige Sitzungen für ein konkretes Anliegen oder eine Zweitmeinung – ganz ohne Verpflichtung.",
+          "meta": "50 Min. · bei Bedarf"
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "So läuft es ab",
+      "heading": "Ein einfacher, unaufgeregter Ablauf",
+      "steps": {
+        "consult": {
+          "title": "Kostenloses Gespräch",
+          "desc": "Ein 20-minütiges Gespräch darüber, was Sie herführt, und ob wir zueinander passen."
+        },
+        "first": {
+          "title": "Erste Sitzung",
+          "desc": "Wir nehmen uns Zeit, verschaffen uns ein Gesamtbild und legen gemeinsam eine grobe Richtung fest."
+        },
+        "ongoing": {
+          "title": "Laufende Begleitung",
+          "desc": "Regelmäßige Sitzungen in Ihrem Tempo – wöchentlich, zweiwöchentlich oder wie es der Alltag erlaubt."
+        },
+        "checkins": {
+          "title": "Zwischenstände",
+          "desc": "Alle paar Monate schauen wir gemeinsam auf die Ziele und passen den Ansatz bei Bedarf an."
+        }
+      }
+    },
+    "pricing": {
+      "eyebrow": "Preise",
+      "heading": "Sitzungspreise",
+      "lead": "Eine begrenzte Anzahl an Plätzen mit gestaffelten Preisen ist verfügbar – fragen Sie einfach im Erstgespräch.",
+      "featuredBadge": "Am beliebtesten",
+      "bookThis": "Jetzt buchen",
+      "plans": {
+        "single": {
+          "title": "Einzelsitzung",
+          "unit": "/ Sitzung",
+          "desc": "Volle 50-minütige Sitzung, Abrechnung pro Termin. Ideal für den Einstieg."
+        },
+        "ongoing": {
+          "title": "Laufende Begleitung",
+          "unit": "/ Sitzung",
+          "desc": "Wöchentliche oder zweiwöchentliche Begleitung, monatliche Abrechnung. Unser beliebtestes Modell."
+        },
+        "coaching": {
+          "title": "Coaching-Paket",
+          "unit": "/ 4 Sitzungen",
+          "desc": "Ein fokussiertes 4-Sitzungen-Paket für ein konkretes Ziel oder einen Übergang."
+        }
+      }
+    },
+    "contact": {
+      "eyebrow": "Erste Schritte",
+      "heading": "Lassen Sie uns einen Termin finden",
+      "lead": "Die Terminbuchung läuft über meinen Kalender – wählen Sie einen passenden Termin und erhalten Sie eine Bestätigung mit allen Informationen für Ihre erste Sitzung.",
+      "cta": "Kalender öffnen",
+      "virtualSuffix": "& virtuell"
+    },
+    "footer": {
+      "copyright": "© {year} {practitionerName}, {credentialAbbr}. Alle Sitzungen sind vertraulich."
+    },
+    "meta": {
+      "title": "{businessName} — Einzeltherapie & Coaching",
+      "description": "{practitionerName} bietet Einzeltherapie und Coaching an, vor Ort und virtuell, mit Sitz in {location}."
+    }
+  }
+}

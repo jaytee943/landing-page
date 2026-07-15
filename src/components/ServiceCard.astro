@@ -1,11 +1,14 @@
 ---
 import type { Service } from '../data/site';
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { t } from '../i18n/translate';
 
 interface Props {
   service: Service;
 }
 
 const { service } = Astro.props;
+const base = `services.items.${service.id}`;
 ---
 
 <div
@@ -17,7 +20,16 @@ const { service } = Astro.props;
   >
     <div class="h-4 w-4 rounded-full" style={`background:${service.iconColor}`}></div>
   </div>
-  <h3 class="font-display mt-1.5 text-xl font-normal">{service.title}</h3>
-  <p class="text-ink-muted flex-1 text-[15px] leading-[1.7]">{service.desc}</p>
-  <div class="border-line text-sage border-t pt-2 text-[13px] font-semibold">{service.meta}</div>
+  <h3 class="font-display mt-1.5 text-xl font-normal" data-i18n={`${base}.title`}>
+    {t(DEFAULT_LOCALE, `${base}.title`)}
+  </h3>
+  <p class="text-ink-muted flex-1 text-[15px] leading-[1.7]" data-i18n={`${base}.desc`}>
+    {t(DEFAULT_LOCALE, `${base}.desc`)}
+  </p>
+  <div
+    class="border-line text-sage border-t pt-2 text-[13px] font-semibold"
+    data-i18n={`${base}.meta`}
+  >
+    {t(DEFAULT_LOCALE, `${base}.meta`)}
+  </div>
 </div>
